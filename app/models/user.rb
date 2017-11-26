@@ -12,6 +12,7 @@
 #
 
 class User < ApplicationRecord
+  has_secure_password
   belongs_to :clubs
   has_many :posts
   has_many :comments
