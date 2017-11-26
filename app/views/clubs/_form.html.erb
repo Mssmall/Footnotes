@@ -1,0 +1,27 @@
+<%= form_for @club do |f| %>
+<fieldset>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</fieldset>
+<fieldset>
+  <%= f.label :manager%>
+  <%= f.text_field :manager%>
+</fieldset>
+<fieldset>
+  <%= f.label :homeground%>
+  <%= f.text_field :homeground%>
+</fieldset>
+<fieldset>
+  <%= f.label :position%>
+  <%= f.text_field :position%>
+</fieldset>
+<fieldset>
+  <%= f.label :image%>
+  <%= f.url_field :image %>
+</fieldset>
+<fieldset></fieldset>
+<fieldset>
+  <label></label>
+  <%= f.submit %>
+</fieldset>
+<% end %>
