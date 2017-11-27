@@ -1,2 +1,21 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="panel-heading">
+  <h1>Posts</h1>
+</div>
+
+<% @posts.each do |post| %>
+  <div class="posts panel panel-default">
+    <ul>
+      <li><%= post.message %></li>
+      <% post.comments.each do |comment| %>
+        <div class="comment panel panel-default">
+          <ul>
+            <li><%= comment.note %></li>
+              <div class="username">
+                <%= "-#{comment.user.username}" %>
+              </div>
+          </ul>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

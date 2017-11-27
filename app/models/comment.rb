@@ -12,6 +12,6 @@
 #
 
 class Comment < ApplicationRecord
-  belongs_to :posts
-  belongs_to :users
+  belongs_to :post, :optional => true
+  belongs_to :user, :optional => true
 end

@@ -3,8 +3,8 @@ c1 = Club.create :name => 'Chelsea Football Club', :manager => 'Antonio Conte', 
 c2 = Club.create :name => 'Manchester United', :manager => 'Jose Mourinho', :homeground => 'Old Trafford'
 
 User.destroy_all
-u1 = User.create :username => 'Blueforever', :email => 'cfc@live.ft'
-u2 = User.create :username => 'ManUrules', :email => 'mun@live.ft'
+u1 = User.create :username => 'Blueforever', :email => 'cfc@live.ft', :password => 'chicken', :password_confirmation => 'chicken'
+u2 = User.create :username => 'ManUrules', :email => 'mun@live.ft', :password => 'chicken', :password_confirmation => 'chicken'
 
 Post.destroy_all
 p1 = Post.create :message => 'What did you think of the game?'

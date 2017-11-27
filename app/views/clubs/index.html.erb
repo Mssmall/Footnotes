@@ -1,9 +1,24 @@
 <h1>Clubs</h1>
 
-<% @clubs.each do |club| %>
+<div class="row">
+  <% @clubs.each do |club| %>
+    <div class="col-sm-4">
+      <%= link_to club.name, club %>
+    </div>
+  <% end %>
+</div>
 
-<ul>
-  <li><%= link_to club.name, club %></li>
-</ul>
 
-<% end %>
+<!-- @clubs = Club.all.sort_by { |c| [c.name.downcase] } -->
+  <!-- config.sort_order = 'name_asc' -->
+
+  <!-- <div class="controls">
+    <%= link_to 'Add new Club', new_club_path %>
+  </div> -->
+
+<!--
+  <div class="row">
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-4">.col-sm-4</div>
+  </div> -->

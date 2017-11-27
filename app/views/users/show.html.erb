@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User Profile</h1>
+
+<% @user.posts.each do |up| %>
+<ul>
+  <%= up.message %>
+</ul>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Edit user', edit_user_path(@user) %>
+  <%= button_to 'Delete user', @user, :method => 'delete', :data => { :confirm => 'You sure?'} %>
+</div>

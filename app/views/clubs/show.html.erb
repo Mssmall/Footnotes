@@ -1,2 +1,17 @@
-<h1>Clubs#show</h1>
-<p>Find me in app/views/clubs/show.html.erb</p>
+<h1> <%= @club.name %> </h1>
+
+<ul>
+<li><%= @club.manager %></li>
+<li><%= @club.homeground %></li>
+</ul>
+
+<% @club.posts.each do |cp| %>
+<ul>
+  <%= cp.user.username %>: <%= cp.message %>
+</ul>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Edit Club', edit_club_path(@club) %>
+  <%= button_to 'Delete club', @club, :method => 'delete', :data => { :confirm => 'You sure?'} %>
+</div>

@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+<ul>
+  <li><%= @post.message %></li>
+</ul>
+<% end %>
+
+<% @posts.comments.each do |pc| %>
+<ul>
+  <%= pc.note %>
+</ul>
+<% end %>
