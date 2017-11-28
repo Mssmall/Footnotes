@@ -10,20 +10,37 @@
 
 <%= form_for @user do |f| %>
 <div class="form-group">
+  <fieldset>
   <%= f.label :username %>
   <%= f.text_field :username, :class => 'form-control' %>
+</fieldset>
 </div>
 <div class="form-group">
+  <fieldset>
   <%= f.label :email %>
   <%= f.email_field :email, :class => 'form-control' %>
-  </div>
+  </fieldset>
+</div>
+
 <div class="form-group">
+  <fieldset>
+  <%= f.label :club_id %>
+  <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
+  </fieldset>
+</div>
+<div class="form-group">
+  <fieldset>
   <%= f.label :password %>
   <%= f.password_field :password, :class => 'form-control' %>
-  </div>
+  </fieldset>
+</div>
+
 <div class="form-group">
+  <fieldset>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation, :class => 'form-control' %>
+</fieldset>
 </div>
+
   <%= f.submit "Sign up" %>
 <% end %>

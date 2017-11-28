@@ -6,12 +6,12 @@
   <div class="posts panel panel-default">
     <ul>
       <li><%= post.message %></li>
-      <% post.comments.each do |comment| %>
+      <% post.comments.each do |pc| %>
         <div class="comment panel panel-default">
           <ul>
-            <li><%= comment.note %></li>
+            <li><%= pc.note %></li>
               <div class="username">
-                <%= "-#{comment.user.username}" %>
+                <%= "-#{pc.user.username}" %>
               </div>
           </ul>
         </div>

@@ -1,7 +1,7 @@
 class ClubsController < ApplicationController
   def index
     @clubs = Club.all
-    
+
   end
 
   def new
@@ -35,7 +35,7 @@ class ClubsController < ApplicationController
 
 private
 def club_params
-  params.require(:club).permit(:name, :manager, :homeground)
+  params.require(:club).permit(:name, :manager, :homeground, :image)
 end
 
 end

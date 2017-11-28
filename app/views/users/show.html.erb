@@ -1,12 +1,29 @@
 <h1>User Profile</h1>
 
-<% @user.posts.each do |up| %>
-<ul>
-  <%= up.message %>
-</ul>
-<% end %>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic neque nesciunt repellat saepe, expedita cumque sequi architecto. Nihil rerum odit architecto dignissimos similique quas praesentium suscipit dolores, magnam pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad totam odit cumque quae voluptas dolorum libero facilis enim, aspernatur beatae aperiam, excepturi vitae. Possimus beatae ipsam sequi facere a soluta! </p>
 
 <div class="controls">
   <%= link_to 'Edit user', edit_user_path(@user) %>
   <%= button_to 'Delete user', @user, :method => 'delete', :data => { :confirm => 'You sure?'} %>
 </div>
+
+<div class="block_1"></div> <hr />
+
+<% @user.posts.each do |post| %>
+<div class="posts panel panel-default">
+  <ul>
+    <li><%= post.message %></li>
+    <% post.comments.each do |pc| %>
+      <div class="comment panel panel-default">
+        <ul>
+          <li><%= pc.note %></li>
+            <div class="username">
+              <%= "-#{pc.user.username}" %>
+            </div>
+        </ul>
+      </div>
+    <% end %>
+  </ul>
+</div>
+<% end %>
