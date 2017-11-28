@@ -8,3 +8,9 @@ class CommentsController < ApplicationController
   def show
   end
 end
+
+# if @comment.save
+#         redirect_to :back, notice: 'Your comment was successfully posted!'
+#       else
+#         redirect_to :back, notice: "Your comment wasn't posted!"
+#       end

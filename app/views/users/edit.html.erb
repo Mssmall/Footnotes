@@ -2,7 +2,7 @@
 
 <%= form_for @user do |f| %>
   <%= f.label :username %>
-  <%= f.email_field :username %>
+  <%= f.text_field :username %>
 
   <%= f.label :email %>
   <%= f.email_field :email %>
@@ -11,6 +11,13 @@
   <%= f.label :club_id %>
   <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
   </fieldset>
+
+  <div class="form-group">
+  <fieldset>
+    <%= f.label :photo%>
+    <%= f.url_field :photo %>
+  </fieldset>
+  </div>
 
   <%= f.label :password %>
   <%= f.password_field :password %>

@@ -25,9 +25,17 @@
 <div class="form-group">
   <fieldset>
   <%= f.label :club_id %>
-  <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
+  <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true, :class => 'form-control' %>
   </fieldset>
 </div>
+
+<div class="form-group">
+<fieldset>
+  <%= f.label :photo%>
+  <%= f.url_field :photo %>
+</fieldset>
+</div>
+
 <div class="form-group">
   <fieldset>
   <%= f.label :password %>

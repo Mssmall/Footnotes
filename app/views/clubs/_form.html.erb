@@ -1,25 +1,35 @@
 <%= form_for @club do |f| %>
-<fieldset>
+<div class="form-group">
+  <fieldset>
   <%= f.label :name %>
   <%= f.text_field :name %>
 </fieldset>
-<fieldset>
+</div>
+<div class="form-group">
+  <fieldset>
   <%= f.label :manager%>
   <%= f.text_field :manager%>
 </fieldset>
-<fieldset>
+</div>
+<div class="form-group">
+  <fieldset>
   <%= f.label :homeground%>
   <%= f.text_field :homeground%>
 </fieldset>
-<fieldset>
+</div>
+<div class="form-group">
+  <fieldset>
   <%= f.label :position%>
   <%= f.text_field :position%>
 </fieldset>
-<fieldset>
+</div>
+<<div class="form-group">
+  fieldset>
   <%= f.label :image%>
   <%= f.url_field :image %>
 </fieldset>
-<fieldset></fieldset>
+</div>
+
 <fieldset>
   <label></label>
   <%= f.submit %>

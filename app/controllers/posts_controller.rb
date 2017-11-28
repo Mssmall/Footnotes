@@ -4,6 +4,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+  end
+
+  def create
+    post = Post.create post_params
+    redirect_to posts_path
   end
 
   def edit
@@ -11,4 +17,9 @@ class PostsController < ApplicationController
 
   def show
   end
+end
+
+private
+def post_params
+  params.require(:post).permit(:message, :club_id, :user_id)
 end
