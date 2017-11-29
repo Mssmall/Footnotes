@@ -165,3 +165,17 @@ nav a {
   letter-spacing: 1px;
   margin: 10px;
 }
+
+.square {
+  height: 100px;
+  width: 100px;
+}
+
+.members {
+  /*border: 2px solid black;*/
+  height: 100px;
+  width: 300px;
+  float: right;
+  padding: 15px;
+  border-radius: 30px;
+}

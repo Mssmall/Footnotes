@@ -3,5 +3,5 @@
 
 <% if @current_user.present? %>
   Welcome back <%= @current_user.email %>
-  <%= image_tag 'http://fillmurray.com/30/30' %>
+  <%= image_tag @current_user.photo, :class => 'square' %>
 <% end %>

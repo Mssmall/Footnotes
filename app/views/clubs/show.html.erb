@@ -21,6 +21,13 @@
     <%= button_to 'Delete club', @club, :method => 'delete', :data => { :confirm => 'You sure?'} %>
   </div>
 
+<div class="members">
+  <h5>Members</h5>
+  <% @club.users.each do |cu| %>
+  <%= cu.username %>
+  <% end %>
+</div>
+
 <div class="block_1"></div> <hr />
 
 <h2>New post</h2>
@@ -48,7 +55,7 @@
 </div>
 
 <div class="subbut">
-<%= f.submit "Add new post"%>
+<%= f.submit "Add new post", :class => 'btn btn-success'%>
 </div>
 <% end %>
 </div>
