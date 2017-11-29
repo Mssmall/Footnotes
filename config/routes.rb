@@ -1,4 +1,4 @@
- # == Route Map
+# == Route Map
 #
 #       Prefix Verb   URI Pattern                  Controller#Action
 #         root GET    /                            pages#home
@@ -34,10 +34,10 @@
 #              PATCH  /comments/:id(.:format)      comments#update
 #              PUT    /comments/:id(.:format)      comments#update
 #              DELETE /comments/:id(.:format)      comments#destroy
-#        login GET    /login(.:format)             session#new
-#              POST   /login(.:format)             session#create
-#              DELETE /login(.:format)             session#destroy
-#
+#        login GET    /login(.:format)             sessions#new
+#              POST   /login(.:format)             sessions#create
+#              DELETE /login(.:format)             sessions#destroy
+# 
 
 Rails.application.routes.draw do
 

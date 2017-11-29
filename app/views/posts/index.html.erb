@@ -36,8 +36,14 @@
     <ul>
       <li><%= post.message %></li>
       <div class="author">
-      <%= "-#{post.user.username}" %>
+      <%= "-#{post.user.try(:username)}" %>
       </div>
+      <%= form_for Comment.new do |f| %>
+        <%= hidden_field_tag 'comment[post_id]', post.id %>
+        <%= f.label :note %>
+        <%= f.text_area :note %>
+        <%= f.submit %>
+      <% end %>
       <% post.comments.each do |pc| %>
         <div class="comment panel panel-default">
           <ul>

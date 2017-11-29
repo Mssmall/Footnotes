@@ -47,12 +47,15 @@
 <% end %>
 </div>
 
-<%= form_for [@post, Comment.new] do |f| %>
-
+<%= form_for [Comment.new] do |f| %>
+<fieldset>
+<%= f.label :note %>
+<%= f.text_field :note, :class => 'form-control' %>
+</fieldset>
 <%= f.submit "Add Comment" %>
 <% end %>
 
-<h2>All Chelsea Posts</h2>
+<h2>All <%= @club.name %> Posts</h2>
 <% @club.posts.each do |cp| %>
 <ul>
   <%= cp.user.username %>: <%= cp.message %>

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171126083919) do
     t.text "email"
     t.text "photo"
     t.integer "club_id"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

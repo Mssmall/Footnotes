@@ -1,4 +1,7 @@
 class ClubsController < ApplicationController
+
+  before_action  :check_if_logged_in
+
   def index
     @clubs = Club.all
 

@@ -14,7 +14,9 @@
  *= require_self
  */
 
-
+body {
+  background-color:
+}
  .panel-heading {
    background-color: #f9fafb;
    border-color: #ddd;
@@ -42,7 +44,7 @@ ul {
 .posts.panel.panel-default {
   background-color: #80808061;
   width: 400px;
-  height: 100px;
+  min-height: 100px;
   border-radius: 4px;
   box-shadow: 5px 5px 2px #888888;
 }
