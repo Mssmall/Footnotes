@@ -1,6 +1,7 @@
 class ClubsController < ApplicationController
 
   before_action  :check_if_logged_in
+  before_action :must_be_admin, :only => [:edit]
 
   def index
     @clubs = Club.all
@@ -22,6 +23,7 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find params[:id]
+    
   end
 
   def update

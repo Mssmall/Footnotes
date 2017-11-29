@@ -15,7 +15,9 @@
       </div>
     </div>
   </div>
+
 <div class="block_1"></div> <hr />
+<div class="verticalline"></div>
 
 <h2>New post</h2>
 
@@ -47,16 +49,9 @@
 <% end %>
 </div>
 
-<%= form_for [Comment.new] do |f| %>
-<fieldset>
-<%= f.label :note %>
-<%= f.text_field :note, :class => 'form-control' %>
-</fieldset>
-<%= f.submit "Add Comment" %>
-<% end %>
-
 <h2>All <%= @club.name %> Posts</h2>
 <% @club.posts.each do |cp| %>
+
 <ul>
   <%= cp.user.username %>: <%= cp.message %>
 </ul>

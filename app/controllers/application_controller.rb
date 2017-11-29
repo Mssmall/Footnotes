@@ -15,6 +15,11 @@ end
 
 def check_if_admin
     redirect_to root_path unless (@current_user.present? && @current_user.admin?) #checks if someone is logged in and if that person is an admin
+  end
 
+def must_be_admin
+    unless @current_user.present? && @current_user.admin?
+    redirect_to root_path, notice: "Some message"
+end
   end
 end

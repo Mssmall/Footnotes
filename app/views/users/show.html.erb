@@ -18,17 +18,23 @@
   </div>
 </div>
 <div class="block_1"></div> <hr />
+<div class="verticalline"></div>
 
 <% @user.posts.each do |post| %>
 <div class="posts panel panel-default">
   <ul>
+    <h4>Message</h4>
     <li><%= post.message %></li>
+    <li><%= post.created_at.strftime '%B %d %H:%M' %></li>
+    <div class="author">
+    <%= "-#{post.user.try(:username)}" %>
+    </div>
     <% post.comments.each do |pc| %>
       <div class="comment panel panel-default">
         <ul>
           <li><%= pc.note %></li>
             <div class="username">
-              <%= "-#{pc.user.username}" %>
+                <%= "-#{pc.user.username} posted #{time_ago_in_words(post.created_at)} ago" %>
             </div>
         </ul>
       </div>
