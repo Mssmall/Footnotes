@@ -16,8 +16,12 @@
     </div>
   </div>
 
+  <div class="controls">
+    <%= link_to 'Edit Club', edit_club_path(@club) %>
+    <%= button_to 'Delete club', @club, :method => 'delete', :data => { :confirm => 'You sure?'} %>
+  </div>
+
 <div class="block_1"></div> <hr />
-<div class="verticalline"></div>
 
 <h2>New post</h2>
 
@@ -50,14 +54,13 @@
 </div>
 
 <h2>All <%= @club.name %> Posts</h2>
+
 <% @club.posts.each do |cp| %>
 
+<div class="bubble">
 <ul>
   <%= cp.user.username %>: <%= cp.message %>
 </ul>
-<% end %>
-
-<div class="controls">
-  <%= link_to 'Edit Club', edit_club_path(@club) %>
-  <%= button_to 'Delete club', @club, :method => 'delete', :data => { :confirm => 'You sure?'} %>
 </div>
+
+<% end %>
