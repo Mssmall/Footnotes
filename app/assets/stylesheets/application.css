@@ -112,6 +112,17 @@ ul {
     padding-left: 15px;
 }
 
+.messagepostbox {
+  width: 280px;
+  min-height: 100px;
+  border-radius: 13px;
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid transparent;
+  border-color: #061042;
+  font-size: 15px;
+}
+
 .comment.panel.panel-default {
   /*background-color: #80808061;*/
   width: 240px;
@@ -120,16 +131,8 @@ ul {
   /*box-shadow: 5px 5px 2px #888888;*/
   padding: 5px;
   margin: 20px;
-}
-
-.messagepostbox {
-  width: 240px;
-  min-height: 100px;
-  border-radius: 4px;
-  padding: 5px;
-  margin: 20px;
-  border: 1px solid transparent;
-  border-color: #ddd;
+  font-size: 12px;
+  font-style: italic;
 }
 
 #comment_note {
@@ -152,6 +155,7 @@ ul {
   color: navy;
   margin: 5px;
   font-size: 11px;
+  font-weight: bold;
 }
 
 .subbut {
@@ -203,13 +207,13 @@ hr {
 }
 /*#000*/
 
-.verticalline {
+/*.verticalline {
   height: 10000000px;
   width: 1px;
   background: #000;
   right: 550px;
   position: absolute;
-}
+}*/
 
 
 .col-md-5 {
@@ -278,8 +282,6 @@ nav a {
   letter-spacing: 1px;
   margin: 10px;
 }
-
-
 
 .members {
   /*border: 2px solid black;*/

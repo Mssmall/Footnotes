@@ -13,81 +13,84 @@
         <li>Homeground: <%= @club.homeground %></li>
         </ul>
       </div>
-    </div>
   </div>
+</div>
 
   <div class="controls">
     <%= link_to 'Edit Club', edit_club_path(@club) %>
     <%= button_to 'Delete club', @club, :method => 'delete', :data => { :confirm => 'You sure?'} %>
   </div>
 
-<div class="members">
-  <h5>Members</h5>
-  <% @club.users.each do |cu| %>
-  <%= cu.username %>
-  <% end %>
-</div>
+  <div class="members">
+    <h5>Members</h5>
+    <% @club.users.each do |cu| %>
+    <%= cu.username %>
+    <% end %>
+  </div>
 
 <div class="block_1"></div> <hr />
 
 <h2>New post</h2>
 
 <div class="messagebox">
-<%= form_for(Post.new)do |f| %>
-<div class="form-group" id="postbox">
-  <fieldset>
-  <%= f.label :message %>
-  <%= f.text_field :message, :class => 'form-control' %>
-</fieldset>
-</div>
-<div class="form-group" id="choice">
-  <fieldset>
-  <%= f.label :club_id %>
-  <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
-  </fieldset>
+  <%= form_for(Post.new)do |f| %>
+    <div class="form-group">
+      <fieldset>
+      <%= f.label :message %>
+      <%= f.text_field :message, :class => 'form-control' %>
+      </fieldset>
+    </div>
+    <div class="form-group" id="choice">
+      <fieldset>
+      <%= f.label :club_id %>
+      <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
+      </fieldset>
+    </div>
+
+    <div class="form-group" id="choice">
+      <fieldset>
+      <%= f.label :user_id %>
+      <%= f.select :user_id, User.pluck(:username, :id), :include_blank => true %>
+      </fieldset>
+    </div>
+
+    <div class="subbut">
+      <%= f.submit "Add new post", :class => 'btn btn-primary'%>
+    </div>
+  <% end %>
 </div>
 
-<div class="form-group" id="choice">
-  <fieldset>
-  <%= f.label :user_id %>
-  <%= f.select :user_id, User.pluck(:username, :id), :include_blank => true %>
-  </fieldset>
-</div>
-
-<div class="subbut">
-<%= f.submit "Add new post", :class => 'btn btn-primary'%>
-</div>
-<% end %>
-</div>
 
 <h2>All <%= @club.name %> Posts</h2>
 
 <% @club.posts.each do |post| %>
 
-<div class ="col-md-6">
-  <div class="bubble post">
+  <div class="posts panel panel-default">
     <ul>
-      <span class="colourname"><%= post.user.username %>: </span> <%= post.message %>
-      <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
-    </ul>
-  </div>
-</div>
-<div class ="col-md-6">
-  <div class="bubble comment">
-    <%= form_for Comment.new do |f| %>
+      <div class="messagepostbox">
+        <span class="colourname"><%= post.user.username %>: </span> <%= post.message %>
+        <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
+      </div>
+
+
+
+  <%= form_for Comment.new do |f| %>
       <%= hidden_field_tag 'comment[post_id]', post.id %>
       <%= f.label :note %>
       <%= f.text_area :note %>
-    <div class="subbut">
-      <%= f.submit "Submit" %>
+      <div class="subbut">
+        <%= f.submit "Comment" %>
+      </div>
+      <% end %>
+      <% post.comments.each do |comment| %>
+        <div class="comment panel panel-default">
+          <ul>
+            <span class="colourname"><%= link_to "#{comment.user.username}", user_path(comment.user)%></span> <li><%= comment.note %></li>
+            <div class="username"><%= "#{time_ago_in_words(post.created_at)} ago" %>
+            </div>
+          </ul>
+        </div>
+      <% end %>
+      </ul>
     </div>
-    <% end %>
-    <% post.comments.each do |comment| %>
-      <p><span class="colourname"><%= comment.user.username %>: </span> <%= comment.note %> <%= "#{time_ago_in_words(post.created_at)} ago" %></p>
-
-    <% end %>
-
-  </div>
-</div>
-
-<% end %>
+  <% end %>
