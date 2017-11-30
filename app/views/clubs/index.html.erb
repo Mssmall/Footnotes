@@ -2,7 +2,7 @@
 
 <div class="row">
   <% @clubs.each do |club| %>
-    <div class="col-sm-4 logobox" style="background-image: url(<%= club.image %>)">
+    <div class="col-sm-3 logobox" style="background-image: url(<%= club.image %>)">
       <a href="<%= club_path(club.id) %>" class="yo">
     </a>
 

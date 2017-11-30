@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     user = User.find params[:id]
     user.update user_params
     user.save
+    redirect_to user_path
     # if user.save
     #   session[:user_id] = @user.id
     # redirect_to root_path

@@ -1,7 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 class="col-sm-6 frontpage"> English Premier League</h1>
+
+<div class="col-sm-4 col-sm-offset-2 front">
+<div class="signupbutton"><%= link_to 'Sign Up', new_user_path  %></div>
+<div class="signinbutton"><%= link_to 'Sign In', login_path %></div>
 
 <% if @current_user.present? %>
-  Welcome back <%= @current_user.email %>
-  <%= image_tag @current_user.photo, :class => 'square' %>
+<div class="welcomemsg">
+  Welcome back <%= @current_user.username %>
+  <%= image_tag @current_user.photo, :class => 'square' %></div>
 <% end %>
+
+</div>

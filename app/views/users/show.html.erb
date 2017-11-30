@@ -8,7 +8,15 @@ style="background-image: url(<%= @user.photo %>)">
 
     <div class ="col-md-5" col-md-offset-4>
       <h1> <%= @user.username %></h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic neque nesciunt repellat saepe, expedita cumque sequi architecto. Nihil rerum odit architecto dignissimos similique quas praesentium suscipit dolores, magnam pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad totam odit cumque quae voluptas dolorum libero facilis enim, aspernatur beatae aperiam, excepturi vitae. Possimus beatae ipsam sequi facere a soluta! </p>
+<p> </p>
+
+<%= form_for @user do |f| %>
+<fieldset>
+<%= f.label :club_id %>
+<%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
+</fieldset>
+<%= f.submit "Save changes", :class => 'profile btn btn-success'%>
+<% end %>
 
 <div class="controls">
   <%= link_to 'Edit user', edit_user_path(@user) %>
