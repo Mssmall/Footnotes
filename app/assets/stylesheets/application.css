@@ -162,8 +162,10 @@ hr {
   position: absolute;
 }
 
+
 .col-md-5 {
   width: 600px;
+
 }
 
 .badge {
@@ -172,7 +174,14 @@ hr {
 }
 
 .profilepicture {
-  margin: 20px;
+  margin: 40px;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  border: 1px solid lightseagreen;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h1 {

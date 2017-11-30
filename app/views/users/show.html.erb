@@ -1,11 +1,11 @@
 <div class="userinfo">
 <div class ="row">
   <div class ="col-md-4" col-md-offset-4>
-
-    <div class="profilepicture">
-      <%= image_tag(@user.photo, :class => 'thumb') %>
+    <div class="profilepicture"
+style="background-image: url(<%= @user.photo %>)">
     </div>
   </div>
+
     <div class ="col-md-5" col-md-offset-4>
       <h1> <%= @user.username %></h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic neque nesciunt repellat saepe, expedita cumque sequi architecto. Nihil rerum odit architecto dignissimos similique quas praesentium suscipit dolores, magnam pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad totam odit cumque quae voluptas dolorum libero facilis enim, aspernatur beatae aperiam, excepturi vitae. Possimus beatae ipsam sequi facere a soluta! </p>
@@ -17,9 +17,9 @@
     </div>
   </div>
 </div>
-<div class="block_1"></div> <hr />
-<div class="verticalline"></div>
 
+<div class="block_1"></div> <hr />
+<div class="rectangle">
 <% @user.posts.each do |post| %>
 <div class="posts panel panel-default">
   <ul>
@@ -40,5 +40,6 @@
       </div>
     <% end %>
   </ul>
+</div>
 </div>
 <% end %>
