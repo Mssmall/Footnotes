@@ -2,16 +2,10 @@
 
 <div class="row">
   <% @clubs.each do |club| %>
-    <div class="col-sm-4">
-      <%= link_to club.name, club %>
+    <div class="col-sm-4 logobox" style="background-image: url(<%= club.image %>)">
+      <a href="<%= club_path(club.id) %>" class="yo">
+    </a>
+
     </div>
   <% end %>
 </div>
-
-
-<!-- @clubs = Club.all.sort_by { |c| [c.name.downcase] } -->
-  <!-- config.sort_order = 'name_asc' -->
-
-  <!-- <div class="controls">
-    <%= link_to 'Add new Club', new_club_path %>
-  </div> -->

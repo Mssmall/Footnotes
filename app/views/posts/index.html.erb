@@ -2,7 +2,7 @@
   <h1>All Posts</h1>
 </div>
 
-<div class="verticalline"></div>
+<!-- <div class="verticalline"></div> -->
 
 <div class="messagebox">
 <%= form_for(Post.new)do |f| %>
@@ -27,7 +27,7 @@
 </div>
 
 <div class="subbut">
-<%= f.submit "Add new post", :class => 'btn btn-success'%>
+<%= f.submit "Add new post", :class => 'btn btn-primary'%>
 </div>
 <% end %>
 </div>
@@ -37,25 +37,27 @@
 <% @posts.each do |post| %>
   <div class="posts panel panel-default">
     <ul>
-      <h4>Message</h4>
+      <!-- <h4>Message</h4> -->
+      <div class="messagepostbox">
+      <span class="colourname"><%= link_to "#{post.user.try(:username)}", user_path(post.user)%></span>
       <li><%= post.message %></li>
-      <li><%= post.created_at.strftime '%B %d %H:%M' %></li>
-      <div class="author">
-      <%= "-#{post.user.try(:username)}" %>
+      <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
       </div>
+
       <%= form_for Comment.new do |f| %>
         <%= hidden_field_tag 'comment[post_id]', post.id %>
-        <%= f.label :note %>
         <%= f.text_area :note %>
-        <%= f.submit %>
+      <div class="submit">
+        <%= f.submit "Comment" %>
+      </div>
       <% end %>
       <% post.comments.each do |pc| %>
         <div class="comment panel panel-default">
           <ul>
+            <span class="colourname"><%= link_to "#{pc.user.username}", user_path(pc.user)%></span>
             <li><%= pc.note %></li>
-
               <div class="username">
-                <%= "-#{pc.user.username} posted #{time_ago_in_words(post.created_at)} ago" %>
+                  <%= "#{time_ago_in_words(post.created_at)} ago" %>
               </div>
           </ul>
         </div>

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   @comment = @post.comments.create(comment_params)
   @comment.user_id = @current_user.id #or whatever is you session name
   if @comment.save
-    redirect_to posts_path
+    redirect_back fallback_location: posts_path # redirect_to posts_path
   else
     flash.now[:danger] = "error"
   end

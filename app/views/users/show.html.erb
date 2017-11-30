@@ -25,7 +25,7 @@
   <ul>
     <h4>Message</h4>
     <li><%= post.message %></li>
-    <li><%= post.created_at.strftime '%B %d %H:%M' %></li>
+    <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
     <div class="author">
     <%= "-#{post.user.try(:username)}" %>
     </div>

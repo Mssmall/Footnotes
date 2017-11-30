@@ -55,19 +55,39 @@
 </div>
 
 <div class="subbut">
-<%= f.submit "Add new post", :class => 'btn btn-success'%>
+<%= f.submit "Add new post", :class => 'btn btn-primary'%>
 </div>
 <% end %>
 </div>
 
 <h2>All <%= @club.name %> Posts</h2>
 
-<% @club.posts.each do |cp| %>
+<% @club.posts.each do |post| %>
 
-<div class="bubble">
-<ul>
-  <%= cp.user.username %>: <%= cp.message %>
-</ul>
+<div class ="col-md-6">
+  <div class="bubble post">
+    <ul>
+      <span class="colourname"><%= post.user.username %>: </span> <%= post.message %>
+      <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
+    </ul>
+  </div>
+</div>
+<div class ="col-md-6">
+  <div class="bubble comment">
+    <%= form_for Comment.new do |f| %>
+      <%= hidden_field_tag 'comment[post_id]', post.id %>
+      <%= f.label :note %>
+      <%= f.text_area :note %>
+    <div class="subbut">
+      <%= f.submit "Submit" %>
+    </div>
+    <% end %>
+    <% post.comments.each do |comment| %>
+      <p><span class="colourname"><%= comment.user.username %>: </span> <%= comment.note %> <%= "#{time_ago_in_words(post.created_at)} ago" %></p>
+
+    <% end %>
+
+  </div>
 </div>
 
 <% end %>
