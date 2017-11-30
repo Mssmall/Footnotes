@@ -13,7 +13,7 @@
     <%= f.label :club_id %>
     <%= f.select :club_id, Club.pluck(:name, :id), :include_blank => true %>
     </fieldset>
-    <%= f.submit "Save changes", :class => 'profile btn btn-success'%>
+    <%= f.submit "Save changes", :class => 'profile btn btn-primary btn-xs'%>
   <% end %>
 
   <div class="controls">
@@ -26,7 +26,6 @@
 
 <div class="block_1"></div> <hr />
 
-<div class="rectangle">
   <% @user.posts.each do |post| %>
     <div class="posts panel panel-default">
       <ul>
@@ -49,5 +48,5 @@
     <% end %>
       </ul>
     </div>
-</div>
+
 <% end %>
