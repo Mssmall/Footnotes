@@ -74,8 +74,6 @@
         <li><%= post.created_at.strftime '%B %d, %H:%M' %></li>
       </div>
 
-
-
   <%= form_for Comment.new do |f| %>
       <%= hidden_field_tag 'comment[post_id]', post.id %>
       <%= f.label :note %>
